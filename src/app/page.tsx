@@ -5,6 +5,70 @@ import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import Link from "next/link";
 
+type pastWork = {
+  name: string,
+  position: string,
+  roblox_group?: string,
+  discord_server?: string,
+  description: string,
+};
+
+const past_work: pastWork[] = [
+  {
+    name: "Going Ape",
+    position: "Developer • June 2025 - current",
+    roblox_group: "https://www.roblox.com/communities/34382694/Going-Ape-Game",
+    discord_server: "https://discord.gg/8EC5Bwhp3v",
+    description: "At Going Ape, I work with a professional development team and am responsible for numerous tasks, including but not limited to creating and maintaining systems, efficent problem solving, handling Server Authority mechanics, assisting with React-based UI components, and regular scripting duties.",
+  },
+];
+
+function pastWorkComponent({ name, position, roblox_group, discord_server, description }: pastWork) {
+  return (
+    <div className="w-full flex flex-col gap-1 pt-5">
+      <div className="flex flex-col gap-2">
+        <p className="text-xl">{name}</p>
+
+        <div className="flex gap-1">
+          {roblox_group && (
+            <Link href="https://www.roblox.com/communities/34382694/Going-Ape-Game">
+              <Button size={"xs"} variant="outline">
+                <Image
+                  alt="ROBLOX"
+                  src="/roblox.svg"
+                  width={16}
+                  height={16}
+                />
+
+                ROBLOX Group
+              </Button>
+            </Link>
+          )}
+
+          {discord_server && (
+            <Link href="https://discord.gg/8EC5Bwhp3v">
+              <Button size={"xs"} variant="outline">
+                <Image
+                  alt="Discord"
+                  src="/discord.svg"
+                  width={16}
+                  height={16}
+                />
+
+                Discord Server
+              </Button>
+            </Link>
+          )}
+        </div>
+      </div>
+
+      <p className="text-muted-foreground">{position}</p>
+
+      <p className="text-wrapped w-full">{description}</p>
+    </div>
+  )
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center pt-35 gap-2 justify-between p-6">
@@ -81,42 +145,12 @@ export default function Home() {
 
         <Separator />
 
-        <div className="w-full flex flex-col gap-1 pt-5">
-          <div className="flex flex-col gap-2">
-            <p className="text-xl">Going Ape</p>
-
-            <div className="flex gap-1">
-              <Link href="https://www.roblox.com/communities/34382694/Going-Ape-Game">
-                <Button size={"xs"} variant="outline">
-                  <Image
-                    alt="ROBLOX"
-                    src="/roblox.svg"
-                    width={16}
-                    height={16}
-                  />
-
-                  ROBLOX Group
-                </Button>
-              </Link>
-
-              <Link href="https://discord.gg/8EC5Bwhp3v">
-                <Button size={"xs"} variant="outline">
-                  <Image
-                    alt="Discord"
-                    src="/discord.svg"
-                    width={16}
-                    height={16}
-                  />
-
-                  Discord Server
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          <p className="text-muted-foreground">Developer • June 2025 - current</p>
-
-          <p className="text-wrapped w-full max-w-100">At Going Ape, I work with a professional development team and am responsible for numerous tasks, including but not limited to creating and maintaining systems, efficent problem solving, handling Server Authority mechanics, assisting with React-based UI components, and regular scripting duties.</p>
+        <div className="w-full max-w-100 flex flex-col gap-2">
+          {past_work.map((work) => {
+            return pastWorkComponent({
+              ...work,
+            });
+          })}
         </div>
       </Motion>
 
