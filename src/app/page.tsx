@@ -59,7 +59,7 @@ export default function Home() {
           </Motion>
 
           <Motion delay={1.4}>
-            <Link href="https://github.com/spectrumok">
+            <Link href="https://discord.com/users/852924911751266355">
               <Button variant="outline">
                 <Image
                   alt="Discord"
