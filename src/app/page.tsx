@@ -16,7 +16,7 @@ type pastWork = {
 const past_work: pastWork[] = [
   {
     name: "Going Ape",
-    position: "Developer • June 2025 - current",
+    position: "Developer ⋅ June 2025 - current",
     roblox_group: "https://www.roblox.com/communities/34382694/Going-Ape-Game",
     discord_server: "https://discord.gg/8EC5Bwhp3v",
     description: "At Going Ape, I work with a professional development team and am responsible for numerous tasks, including but not limited to creating and maintaining systems, efficent problem solving, handling Server Authority mechanics, assisting with React-based UI components, and regular scripting duties.",
